@@ -192,7 +192,7 @@
       color: #880e4f;
     }
 
-    /* Photo Gallery Slider / Grid */
+    /* Photo Gallery Slider */
     .gallery-container {
       position: relative;
       margin-top: 15px;
@@ -299,7 +299,7 @@
     <p id="error" class="error-msg">Incorrect password! Try 'Riya' 💔</p>
   </div>
 
-  <!-- Main Website Wrapper (Hidden Initially) -->
+  <!-- Main Website Wrapper -->
   <div class="main-wrapper" id="main-content" style="display: none;">
 
     <!-- Section 1: Welcome Header -->
@@ -361,7 +361,7 @@
       </div>
     </div>
 
-    <!-- Section 5: Reasons I Love You (Jar Notes) -->
+    <!-- Section 5: Reasons I Love You -->
     <div class="section-card">
       <div class="small-top">A Jar Full Of Sweet Thoughts</div>
       <h2>Reasons I Love You</h2>
@@ -383,10 +383,10 @@
         <p>
           My Riya,<br><br>
           I don't know if words will ever be enough to explain how much you mean to me, but I want to try.<br><br>
-          I will be the one to love you in infinity and beyond, to give you a home that makes you feel safe and loved, and to be your loving wife/partner.<br><br>
+          I will be the one to love you in infinity and beyond, to give you a home that makes you feel safe and loved.<br><br>
           I want to be the person you can come home to, the person you can laugh with, dream with, and grow with.<br><br>
           Through every single day and season, I hope you remember that my whole heart belongs completely and endlessly to you.<br><br>
-          You are my Queen, and I am so grateful that I get to be your love. I love you more than words can express. More silly moments. More late-night conversations. More adventures. More birthdays. More ordinary days that become extraordinary because of you.<br><br>
+          You are my Queen, and I am so grateful that I get to be your love.<br><br>
           Your loving soul ❤️
         </p>
       </div>
@@ -402,12 +402,13 @@
         <img src="Riya1.jpg" alt="Song Cover">
         <div>
           <h4 style="color: #ad1457;">Our Little Universe</h4>
-          <p style="font-size: 0.85em;">Playing in the background...</p>
+          <p style="font-size: 0.85em;">Playing Music.mp3</p>
         </div>
       </div>
 
+      <!-- Updated Song Source to Music.mp3 -->
       <audio id="bg-music" controls loop>
-        <source src="song.mp3" type="audio/mpeg">
+        <source src="Music.mp3" type="audio/mpeg">
         Your browser does not support audio element.
       </audio>
     </div>
@@ -443,7 +444,6 @@
       });
     }
 
-    // Relationship Timer Start Date (May 15, 2024)
     function startRelationshipTimer() {
       const startDate = new Date("May 15, 2024 18:15:00").getTime();
 
@@ -463,7 +463,6 @@
       }, 1000);
     }
 
-    // Jar Random Romantic Notes
     const notes = [
       "Your smile instantly brightens my darkest days. 😊",
       "I love the way your eyes light up when you laugh. ✨",
@@ -479,7 +478,6 @@
       triggerConfetti();
     }
 
-    // Floating Hearts Animation Generator
     function createHeart() {
       const heart = document.createElement("div");
       heart.classList.add("heart");
