@@ -3,74 +3,73 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Happy Birthday Riya ❤️</title>
+  <title>Happy Birthday Riya - 23rd December ❤️</title>
+  <!-- Canvas Confetti Library for Surprise Explosion -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
   <style>
-    /* Global Styles */
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Poppins', 'Segoe UI', sans-serif;
     }
 
     body {
-      background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
-      color: #333;
+      background: linear-gradient(135deg, #1e032b 0%, #4a0e2e 50%, #800f2f 100%);
+      color: #fff;
       min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
       overflow-x: hidden;
-      position: relative;
+      padding: 20px 0;
     }
 
-    /* Floating Hearts Animation */
+    /* Floating Hearts Background */
     .bg-hearts {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
       pointer-events: none;
       z-index: 0;
-      overflow: hidden;
     }
 
     .heart {
       position: absolute;
-      bottom: -10px;
-      color: rgba(255, 255, 255, 0.6);
+      bottom: -20px;
+      color: rgba(255, 105, 180, 0.6);
       animation: floatUp 6s linear infinite;
       font-size: 20px;
     }
 
     @keyframes floatUp {
-      0% { transform: translateY(0) scale(0.8); opacity: 1; }
-      100% { transform: translateY(-100vh) scale(1.2); opacity: 0; }
+      0% { transform: translateY(0) scale(0.8) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(-105vh) scale(1.3) rotate(360deg); opacity: 0; }
     }
 
-    /* Card Container */
+    /* Container Card */
     .container {
       position: relative;
       z-index: 10;
       width: 90%;
-      max-width: 800px;
-      background: rgba(255, 255, 255, 0.92);
-      backdrop-filter: blur(10px);
-      border-radius: 20px;
-      padding: 25px;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+      max-width: 850px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 25px;
+      padding: 30px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
       text-align: center;
-      margin: 20px 0;
     }
 
-    /* Lock Screen Modal */
+    /* Lock Screen */
     #lock-screen {
       position: absolute;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background: #fff;
-      border-radius: 20px;
+      background: rgba(15, 5, 20, 0.95);
+      border-radius: 25px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -80,120 +79,214 @@
     }
 
     #lock-screen h2 {
-      color: #ff4757;
-      margin-bottom: 15px;
-    }
-
-    .pass-input {
-      padding: 12px 20px;
-      font-size: 16px;
-      border: 2px solid #ff758c;
-      border-radius: 25px;
-      outline: none;
-      text-align: center;
-      margin-bottom: 15px;
-      width: 80%;
-      max-width: 250px;
-    }
-
-    .btn {
-      background: linear-gradient(45deg, #ff4757, #ff6b81);
-      color: #fff;
-      border: none;
-      padding: 12px 30px;
-      border-radius: 25px;
-      font-size: 16px;
-      cursor: pointer;
-      box-shadow: 0 5px 15px rgba(255, 71, 87, 0.4);
-      transition: all 0.3s ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(255, 71, 87, 0.6);
-    }
-
-    /* Main Content */
-    h1 {
-      color: #d63031;
-      font-size: 2.2em;
+      color: #ff4d6d;
+      font-size: 2em;
       margin-bottom: 10px;
     }
 
+    .pass-input {
+      padding: 12px 25px;
+      font-size: 16px;
+      border: 2px solid #ff4d6d;
+      border-radius: 30px;
+      outline: none;
+      text-align: center;
+      margin: 15px 0;
+      width: 80%;
+      max-width: 260px;
+      background: rgba(255,255,255,0.9);
+      color: #333;
+    }
+
+    .btn {
+      background: linear-gradient(45deg, #ff4d6d, #ff758f);
+      color: #fff;
+      border: none;
+      padding: 12px 35px;
+      border-radius: 30px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 5px 20px rgba(255, 77, 109, 0.4);
+      transition: all 0.3s ease;
+      margin-top: 10px;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 8px 25px rgba(255, 77, 109, 0.6);
+    }
+
+    /* Floating Music Control Button */
+    .music-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 99;
+      background: rgba(255, 77, 109, 0.8);
+      border: none;
+      color: white;
+      padding: 12px 18px;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 14px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      backdrop-filter: blur(5px);
+    }
+
+    /* Header */
+    h1 {
+      color: #ff758f;
+      font-size: 2.5em;
+      text-shadow: 0 0 10px rgba(255, 117, 143, 0.5);
+      margin-bottom: 5px;
+    }
+
     .subtitle {
+      color: #ffccd5;
       font-style: italic;
-      color: #666;
       margin-bottom: 20px;
     }
 
-    /* Audio Player Styling */
-    .audio-container {
-      margin: 15px 0;
-    }
-
-    audio {
-      width: 100%;
-      max-width: 350px;
-      border-radius: 20px;
-    }
-
-    /* Shayari / Poetry Box */
-    .poetry-box {
-      background: #ffeaa7;
-      border-left: 5px solid #fdcb6e;
+    /* Countdown Timer Box */
+    .countdown-box {
+      background: rgba(255, 77, 109, 0.15);
+      border: 1px solid rgba(255, 77, 109, 0.4);
       padding: 15px;
-      border-radius: 10px;
+      border-radius: 15px;
       margin: 20px 0;
+    }
+
+    .timer {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 10px;
+    }
+
+    .time-card {
+      background: rgba(0, 0, 0, 0.3);
+      padding: 10px 15px;
+      border-radius: 10px;
+      min-width: 65px;
+    }
+
+    .time-card span {
+      display: block;
+      font-size: 1.5em;
+      font-weight: bold;
+      color: #ff758f;
+    }
+
+    .time-card label {
+      font-size: 0.75em;
+      color: #ffccd5;
+    }
+
+    /* Romantic Shayari Box */
+    .poetry-box {
+      background: rgba(255, 255, 255, 0.08);
+      border-left: 4px solid #ff4d6d;
+      padding: 20px;
+      border-radius: 15px;
+      margin: 25px 0;
       font-size: 1.1em;
-      line-height: 1.6;
-      color: #2d3436;
-      font-weight: 500;
+      line-height: 1.8;
+      color: #fff0f3;
+      box-shadow: inset 0 0 15px rgba(255,255,255,0.05);
+    }
+
+    /* Gift Box Section */
+    .gift-container {
+      margin: 25px 0;
+    }
+
+    .gift-box {
+      font-size: 60px;
+      cursor: pointer;
+      display: inline-block;
+      animation: pulse 1.5s infinite;
+      transition: transform 0.3s;
+    }
+
+    .gift-box:hover {
+      transform: scale(1.2) rotate(10deg);
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
     }
 
     /* Photo Grid Gallery */
     .gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
       gap: 15px;
-      margin: 20px 0;
+      margin: 25px 0;
     }
 
     .gallery img {
       width: 100%;
-      height: 140px;
+      height: 150px;
       object-fit: cover;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-      transition: transform 0.3s ease;
+      border-radius: 15px;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      transition: all 0.4s ease;
       cursor: pointer;
     }
 
     .gallery img:hover {
-      transform: scale(1.05);
+      transform: scale(1.08) rotate(2deg);
+      border-color: #ff4d6d;
+      box-shadow: 0 12px 25px rgba(255, 77, 109, 0.5);
     }
 
-    /* Secret Diary Section */
-    .diary-section {
-      background: #f8f9fa;
-      padding: 15px;
+    /* Love Quiz Section */
+    .quiz-box {
+      background: rgba(0, 0, 0, 0.2);
+      padding: 20px;
       border-radius: 15px;
-      margin-top: 20px;
-      border: 1px dashed #ff758c;
+      margin: 25px 0;
+      text-align: left;
+    }
+
+    .quiz-option {
+      background: rgba(255,255,255,0.1);
+      padding: 10px 15px;
+      margin: 8px 0;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .quiz-option:hover {
+      background: rgba(255, 77, 109, 0.4);
+    }
+
+    /* Secret Diary */
+    .diary-section {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 20px;
+      border-radius: 15px;
+      margin-top: 25px;
+      border: 1px dashed rgba(255, 117, 143, 0.5);
     }
 
     .diary-content {
       display: none;
       margin-top: 15px;
-      color: #444;
-      font-size: 1em;
-      line-height: 1.5;
+      color: #ffccd5;
+      font-size: 1.05em;
+      line-height: 1.7;
       text-align: left;
       white-space: pre-line;
     }
 
-    /* Error Message */
     .error-msg {
-      color: #e84118;
+      color: #ff4d6d;
       font-size: 0.9em;
       margin-top: 10px;
       display: none;
@@ -205,40 +298,64 @@
   <!-- Floating Hearts Background -->
   <div class="bg-hearts" id="hearts-container"></div>
 
+  <!-- Music Button -->
+  <button class="music-btn" onclick="toggleMusic()">🎵 Music: On/Off</button>
+
+  <audio id="bg-music" loop>
+    <source src="song.mp3" type="audio/mpeg">
+  </audio>
+
   <div class="container">
 
     <!-- 1. Password Lock Screen -->
     <div id="lock-screen">
       <h2>🔒 Secret Romantic Entry</h2>
-      <p style="margin-bottom: 15px; color: #777;">Riya, khas birthday surprise dekhne ke liye password daalein!</p>
-      <input type="password" id="password" class="pass-input" placeholder="Enter Password (1234)">
+      <p style="color: #ffccd5; margin-bottom: 10px;">23rd December Birthday Special Surprise ✨</p>
+      <input type="password" id="password" class="pass-input" placeholder="Enter Password">
       <button class="btn" onclick="checkPassword()">Unlock Surprise ❤️</button>
       <p id="error" class="error-msg">Galat password! Phir se try karein 💔</p>
     </div>
 
     <!-- 2. Main Birthday Web Content -->
     <div id="main-content" style="display: none;">
-      <h1>🎉 Happy Birthday, Riya! 🎂</h1>
-      <p class="subtitle">Tumhari muskaan hi meri duniya hai ✨</p>
+      <h1>🎉 Happy Birthday Riya! 🎂</h1>
+      <p class="subtitle">23rd December - A Very Special Day ✨</p>
 
-      <!-- Music Section -->
-      <div class="audio-container">
-        <p style="margin-bottom: 5px; font-size: 0.9em; color: #555;">🎵 Play Background Song:</p>
-        <audio id="bg-music" controls loop>
-          <source src="song.mp3" type="audio/mpeg">
-          Aapka browser audio play nahi kar pa raha.
-        </audio>
+      <!-- Countdown Timer -->
+      <div class="countdown-box">
+        <p style="color: #ffccd5; font-size: 0.9em;">⏳ Birthday Countdown (23 Dec):</p>
+        <div class="timer" id="timer">
+          <div class="time-card"><span id="days">00</span><label>Days</label></div>
+          <div class="time-card"><span id="hours">00</span><label>Hours</label></div>
+          <div class="time-card"><span id="minutes">00</span><label>Mins</label></div>
+          <div class="time-card"><span id="seconds">00</span><label>Secs</label></div>
+        </div>
+      </div>
+
+      <!-- Surprise Gift Box -->
+      <div class="gift-container">
+        <p style="font-size: 0.9em; color: #ffccd5;">🎁 Special Gift Par Tap Karein:</p>
+        <div class="gift-box" onclick="openGift()">🎁</div>
       </div>
 
       <!-- Hindi Poetry / Shayari Section -->
       <div class="poetry-box">
         "Chand se pyari chandni, chandni se pyari raat,<br>
         Raat se pyari zindagi, aur zindagi se pyara aapka saath! ❤️<br><br>
-        Janamdin ki bohot bohot badhaai ho Riya!"
+        23 December ke iss khas din par, Janamdin ki bohot bohot badhaai ho Riya!"
       </div>
 
-      <!-- 14 Photo Grid Gallery (Riya1.jpg to Riya14.jpg) -->
-      <h3 style="color: #ff4757; margin-top: 25px;">📸 Beautiful Memories</h3>
+      <!-- Interactive Love Quiz -->
+      <div class="quiz-box">
+        <h3 style="color: #ff758f; margin-bottom: 10px;">❓ Quick Love Quiz</h3>
+        <p style="margin-bottom: 10px;">Duniya ki sabse pyari smile kiske paas hai?</p>
+        <div class="quiz-option" onclick="quizAnswer(true)">A) Definitely Riya Ke Paas 😍</div>
+        <div class="quiz-option" onclick="quizAnswer(false)">B) Kisi aur ke paas 😜</div>
+        <p id="quiz-result" style="margin-top: 10px; color: #ffccd5; font-weight: bold;"></p>
+      </div>
+
+      <!-- 14 Photo Grid Gallery -->
+      <h3 style="color: #ff758f; margin-top: 30px;">📸 Beautiful Memories</h3>
       <div class="gallery">
         <img src="Riya1.jpg" alt="Riya Memory 1">
         <img src="Riya2.jpg" alt="Riya Memory 2">
@@ -261,7 +378,7 @@
         <button class="btn" onclick="toggleDiary()">💌 Read My Secret Note</button>
         <div class="diary-content" id="diary-text">
           Dear Riya,<br><br>
-          Aaj ke din bas yahi kehna chahta hoon ki tum meri zindagi ka sabse pyara hissa ho. Tumhari har khushi mere liye sabse pehle hai. Khuda kare tumhaare saare sapne pure hon aur hum hamesha aise hi saath rahein.<br><br>
+          Aaj ke din (23rd December) bas yahi kehna chahta hoon ki tum meri zindagi ka sabse pyara hissa ho. Tumhari har khushi mere liye sabse pehle hai. Khuda kare tumhaare saare sapne pure hon aur hum hamesha aise hi saath rahein.<br><br>
           Always yours ❤️
         </div>
       </div>
@@ -271,33 +388,96 @@
   </div>
 
   <script>
-    // Password Setting (Aap yahan badal sakte hain)
-    const CORRECT_PASSWORD = "1234"; 
+    const CORRECT_PASSWORD = "Riya"; // Updated Password: Riya
+    const audio = document.getElementById("bg-music");
 
     function checkPassword() {
       const inputPass = document.getElementById("password").value;
       const errorMsg = document.getElementById("error");
       const lockScreen = document.getElementById("lock-screen");
       const mainContent = document.getElementById("main-content");
-      const audio = document.getElementById("bg-music");
 
       if (inputPass === CORRECT_PASSWORD) {
         lockScreen.style.display = "none";
         mainContent.style.display = "block";
-        audio.play().catch(e => console.log("Audio auto-play prevented"));
+        audio.play().catch(e => console.log("Audio play blocked"));
+        triggerConfetti();
+        startCountdown();
       } else {
         errorMsg.style.display = "block";
+      }
+    }
+
+    function toggleMusic() {
+      if (audio.paused) {
+        audio.play();
+      } else {
+        audio.pause();
+      }
+    }
+
+    // Gift Box Confetti Explosion
+    function openGift() {
+      triggerConfetti();
+      alert("🎁 Birthday Surprise: Tum meri zindagi ka sabse special gift ho Riya! ❤️");
+    }
+
+    function triggerConfetti() {
+      confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 }
+      });
+    }
+
+    // Quiz Result
+    function quizAnswer(isCorrect) {
+      const res = document.getElementById("quiz-result");
+      if(isCorrect) {
+        res.innerHTML = "Sahi Jawab! Riya ki smile hi 100% Best Hai! ❤️🥰";
+        triggerConfetti();
+      } else {
+        res.innerHTML = "Galat Jawab! Dobara try karo! 😜";
       }
     }
 
     // Secret Note Toggle
     function toggleDiary() {
       const diaryText = document.getElementById("diary-text");
-      if (diaryText.style.display === "block") {
-        diaryText.style.display = "none";
-      } else {
-        diaryText.style.display = "block";
+      diaryText.style.display = diaryText.style.display === "block" ? "none" : "block";
+    }
+
+    // 23rd December Live Countdown Logic
+    function startCountdown() {
+      const currentYear = new Date().getFullYear();
+      let targetDate = new Date(`December 23, ${currentYear} 00:00:00`).getTime();
+      const now = new Date().getTime();
+
+      if (now > targetDate && new Date().getDate() !== 23) {
+        targetDate = new Date(`December 23, ${currentYear + 1} 00:00:00`).getTime();
       }
+
+      const timerInterval = setInterval(() => {
+        const currentTime = new Date().getTime();
+        const difference = targetDate - currentTime;
+
+        if (difference <= 0) {
+          clearInterval(timerInterval);
+          document.getElementById("timer").innerHTML = "<h3 style='color:#ff758f;'>🎉 HAPPY BIRTHDAY RIYA! 🎉</h3>";
+          triggerConfetti();
+          return;
+        }
+
+        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+        document.getElementById("days").innerText = days < 10 ? '0' + days : days;
+        document.getElementById("hours").innerText = hours < 10 ? '0' + hours : hours;
+        document.getElementById("minutes").innerText = minutes < 10 ? '0' + minutes : minutes;
+        document.getElementById("seconds").innerText = seconds < 10 ? '0' + seconds : seconds;
+      }, 1000);
     }
 
     // Dynamic Floating Hearts Background
